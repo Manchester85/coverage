@@ -29,10 +29,11 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
                 <configuration>
-                <failIfNoTests>true</failIfNoTests>
+                    <failIfNoTests>true</failIfNoTests>
                 </configuration>
 
             </plugin>
+
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -40,23 +41,43 @@
 
                 <executions>
                     <execution>
-                        <id>prepare-agent</id>
+                        <id>prepare-agent-666675</id>
                         <phase>initialize</phase>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
                     <execution>
-                        <id>report</id>
+                        <id>report-77643</id>
                         <phase>verify</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
                     </execution>
+                    <execution>
+                        <id>check</id>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
                 </executions>
+                <configuration>
+                    <rules>
+                        <rule>
+                            <limits>
+                                <limit>
+                                    <counter>LINE</counter>
+                                    <value>COVEREDRATIO</value>
+                                    <minimum>100%</minimum>
+                                </limit>
+                            </limits>
+                        </rule>
+                    </rules>
+                </configuration>
 
-            </plugin>
-        </plugins>
 
-    </build>
-</project>
+        </plugin>
+    </plugins>
+
+</build>
+        </project>
